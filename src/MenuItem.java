@@ -35,8 +35,8 @@ public class MenuItem {
 
     @Override
     public String toString() {
-        return String.format("Code: %s | Name: %s | Price: $%.2f | Cat: %s",code, price,
-                category, productCount);
+        return String.format("Code: %s | Name: %s | Price: $%.2f |Category:%s |",code, category,
+                price, productCount);
 
     }
 
