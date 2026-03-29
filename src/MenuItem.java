@@ -3,14 +3,14 @@ public class MenuItem {
     private String name;
     private double price;
     private String category;
-    private static int productCount;
+    private static int productCount = 0;
 
-    public MenuItem(String code, String name, double price, String category, int productCount) {
+    public MenuItem(String code, String name, double price, String category) {
         this.code = code;
         this.name = name;
         this.price = price;
         this.category = category;
-        this.productCount = productCount;
+        productCount++;
     }
 
     public String getCode() {
@@ -29,7 +29,9 @@ public class MenuItem {
         return category;
     }
 
-    static int numberOfProducts() {
+
+
+    static int getProductCount() {
         return MenuItem.productCount;
     }
 

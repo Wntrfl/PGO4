@@ -1,12 +1,26 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public static void main(String[] args) {
+public class Main {
+    public static void main(String[] args) {
+        MenuItem m1 = new MenuItem("C-01", "Espresso", 9.0, "coffee");
+        MenuItem m2 = new MenuItem("C-02", "Cappuccino", 13.5, "coffee");
+        MenuItem m3 = new MenuItem("D-01", "Cheesecake", 16.0, "dessert");
 
-   CafeCustomer customer1 = new CafeCustomer(12345, "Iavn", "Halski", "Ivan@mail");
+        CafeCustomer customer = new CafeCustomer(100, "Julia", "Mazur", "j.mazur@mail.pl");
 
-   customer1.printCustomerInfo();
+        Order order = new Order(customer);
+        order.addItem(m1);
+        order.addItem(m2);
+        order.addItem(m3);
 
+        System.out.println(customer);
+        System.out.println(order);
+        System.out.println("Total value: " + order.calculateTotal());
+        System.out.println("Number of items: " + order.countItems());
+        System.out.println("Number of products created in the system: " + MenuItem.getProductCount());
 
+        MenuItem espressoCopy = new MenuItem("C-01", "Espresso duplicate", 9.0, "coffee");
+        System.out.println("Are the products equal? " + m1.equals(espressoCopy));
 
-
+        order.markAsPaid();
+        System.out.println(order);
+    }
 }

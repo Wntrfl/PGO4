@@ -4,14 +4,14 @@ public class Order {
     private CafeCustomer customer;
     private ArrayList<MenuItem> items;
     private boolean paid;
-    private static int nextOrderNumber;
+    private static int nextOrderNumber = 0;
 
-    public Order(int orderNumber, CafeCustomer customer,  ArrayList<MenuItem> items, boolean paid, int nextOrderNumber) {
-        this.orderNumber = orderNumber;
+    public Order(CafeCustomer customer) {
+        this.orderNumber = nextOrderNumber;
         this.customer = customer;
-        this.items = items;
-        this.paid = paid;
-        this.nextOrderNumber = nextOrderNumber;
+        this.items = new ArrayList<>();
+        this.paid = false;
+        nextOrderNumber++;
     }
 
     public void addItem (MenuItem item){
@@ -30,8 +30,8 @@ public class Order {
         return items.size();
     }
 
-    public boolean markAsPaid(){
-        return paid;
+    public void markAsPaid(){
+        this.paid = true;
     }
 
     public static int getNextOrderNumber() {
@@ -41,7 +41,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return String.format("order number : %s | customer %s | items: %s |paid:%s | next order: %s" , orderNumber, customer, items,
+        return String.format("Order number : %s | %s | Items: %s |Paid: %s | Next order: %s" , orderNumber, customer, items,
                 paid, nextOrderNumber);
     }
 
